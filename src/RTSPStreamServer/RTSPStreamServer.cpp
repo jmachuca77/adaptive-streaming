@@ -76,7 +76,7 @@ void RTSPStreamServer::get_v4l2_devices_info()
             info.mount_point = MOUNT_POINT_PREFIX + to_string(i);
             info.frame_property_bitmask = 0;
 
-            if (string((char*)caps.driver) == JETSON_CAM_DRIVER) {
+            if ((string((char*)caps.driver) == JETSON_CAM_DRIVER) || (string((char*)caps.driver) == REALSENSE_DRIVER)) {
                 info.camera_type = JETSON_CAM;
                 info.frame_property_bitmask |= (1 << VIDEO_320x240x15);
                 info.frame_property_bitmask |= (1 << VIDEO_320x240x30);
